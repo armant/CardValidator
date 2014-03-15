@@ -6,26 +6,18 @@
     </head>
     
     <body>
-        <p>Please enter the credit card number:</p>
-        <form action="">
-            Card number: <input type="text">
-        </form>
-        <a href="http://jquery.com/">jQuery</a>
-        <script src="jquery.js"></script>
         
         <script>
-            $( document ).ready(function() {
-                $( "a" ).click(function( event ) {
-                    alert( "Thanks for visiting!" );
+            $(document).ready(function(){
+                $("#number").keyup(function(){
+                var num = $('#number').val();
+                alert( num );
                 });
-                
-                $( "form" ).keyup(function() {
-                    alert($(this).val());
-                    var 
-                });
-            });
+            })
         </script>
         
+        <p>Please enter the credit card number:</p>
+        <input type="text" id="number"  />
         
     </body>
 </html>
