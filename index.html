@@ -10,8 +10,14 @@
         <script>
             $(document).ready(function(){
                 $("#number").keyup(function(){
-                var num = $('#number').val();
-                alert( num );
+                    var nstring = $('#number').val();
+                    var n = Number(nstring);
+                    if ( isNaN(n) ) {
+                        $("p#answer").text("The number is NOT valid");
+                    }
+                    else {
+                        $("p#answer").text("The number is valid");
+                    }
                 });
             })
         </script>
@@ -19,6 +25,7 @@
         <p>Please enter the credit card number:</p>
         <input type="text" id="number"  />
         
+        <p id="answer"></p>
+        
     </body>
 </html>
-
