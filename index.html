@@ -12,17 +12,47 @@
                 $("#number").keyup(function(){
                     var nstring = $('#number').val();
                     var n = Number(nstring);
-                    if ( isNaN(n) ) {
+                    if ( isNaN(n) || (n < 1000000000000000) || (n > 9999999999999999) ) {
                         $("p#answer").text("The number is NOT valid");
                     }
                     else {
-                        $("p#answer").text("The number is valid");
+                        var evendigit = false;
+                        var DigitSum = 0;
+                                                                    
+                        while ( n > 0 ) {
+                            var LastDigit = n % 10;
+                            if (evendigit) {
+                                LastDigit = LastDigit * 2;
+                                
+                                if (LastDigit > 9) {
+                                    LastDigit = (LastDigit % 10) + 1;
+                                }
+                            }
+                            
+                            DigitSum = DigitSum + LastDigit;
+                            
+                            if (evendigit) {
+                                evendigit = false;
+                            } 
+                            else {
+                                evendigit = true;
+                            }
+                            n = parseInt(n/10);
+                        }
+                        
+                        if (DigitSum % 10 == 0) {
+                            $("p#answer").text("The number is valid");
+                        }
+                        
+                        else {
+                            $("p#answer").text("The number is NOT valid");
+                        }                     
                     }
                 });
             })
         </script>
         
-        <p>Please enter the credit card number:</p>
+        <p>Please enter the card number:</p>
         <input type="text" id="number"  />
         
         <p id="answer"></p>
