@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Card Validator</title>
+        <link href = "css/styles.css" rel = "stylesheet">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     </head>
     
@@ -13,8 +14,10 @@
                     var nstring = $('#number').val();
                     var n = Number(nstring);
                     if ( isNaN(n) || (n < 1000000000000000) || (n > 9999999999999999) ) {
+                        $("p").css("color","red");
                         $("p#answer").text("The number is NOT valid");
                     }
+                    
                     else {
                         var evendigit = false;
                         var DigitSum = 0;
@@ -41,10 +44,12 @@
                         }
                         
                         if (DigitSum % 10 == 0) {
-                            $("p#answer").text("The number is valid");
+                            $("p").css("color","#48bc48");
+                            $("p#answer").text("The number is valid!");
                         }
                         
                         else {
+                            $("p").css("color","red");
                             $("p#answer").text("The number is NOT valid");
                         }                     
                     }
@@ -52,10 +57,11 @@
             })
         </script>
         
-        <p>Please enter the card number:</p>
-        <input type="text" id="number"  />
-        
-        <p id="answer"></p>
+        <div>
+            <center><h3>Please enter the card number:</h3></center>
+            <center><input type="text" id="number"  /></center>
+            <center><p id="answer"></p></center>
+        </div>
         
     </body>
 </html>

@@ -1,0 +1,11 @@
+div {
+    background-color: rgba(215, 237, 247, 0.85);
+    border-radius: 10px;
+    padding: 1px 25px 1px 25px;
+    margin: auto;
+    height: 140px;
+    width: 400px;
+    border-style: solid;
+    border-width: 2px;
+    font-family: Calibri;
+}
